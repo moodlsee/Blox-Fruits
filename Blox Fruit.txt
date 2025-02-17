@@ -1,9 +1,20 @@
-local success, OrionLib = pcall(function()
-    return loadstring(game:HttpGet("https://raw.githubusercontent.com/moodlsee/Blox-Fruits/refs/heads/main/Blox%20Fruit.txt"))()
+local url = "https://raw.githubusercontent.com/moodlsee/Blox-Fruits/main/Blox%20Fruit.txt"
+
+local success, scriptContent = pcall(function()
+    return game:HttpGet(url)
 end)
 
 if not success then
-    warn("\n[Erreur] Échec du chargement du script Blox Fruits\n")
+    warn("\n[Erreur] Impossible de charger le script depuis " .. url .. "\n")
+    return
+end
+
+print("\n[Info] Contenu du script chargé :\n" .. scriptContent) -- DEBUG
+
+local successLoad, OrionLib = pcall(loadstring(scriptContent))
+
+if not successLoad or not OrionLib then
+    warn("\n[Erreur] Le script ne s'est pas exécuté correctement.\n")
     return
 end
 
