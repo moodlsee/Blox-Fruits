@@ -1,4 +1,13 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local success, OrionLib = pcall(function()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/moodlsee/Blox-Fruits/refs/heads/main/Blox%20Fruit.txt"))()
+end)
+
+if not success then
+    warn("\n[Erreur] Échec du chargement du script Blox Fruits\n")
+    return
+end
+
+print("\n[Succès] Script chargé correctement !\n")
 
 local Window = OrionLib:MakeWindow({
     Name = "Blox Fruits Script",
