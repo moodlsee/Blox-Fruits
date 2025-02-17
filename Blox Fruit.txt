@@ -1,0 +1,43 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "Blox Fruits Script",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "BloxFruitsConfig",
+    IntroEnabled = true,
+    IntroText = "Welcome to Blox Fruits Script!"
+})
+
+local MainTab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+MainTab:AddButton({
+    Name = "Auto Farm XP",
+    Callback = function()
+        print("Auto Farm XP activated!")
+        -- Ajoutez votre code d'auto farm ici
+    end
+})
+
+MainTab:AddButton({
+    Name = "Auto Collect Chests",
+    Callback = function()
+        print("Auto Collect Chests activated!")
+        -- Ajoutez votre code de collecte de coffres ici
+    end
+})
+
+MainTab:AddToggle({
+    Name = "God Mode",
+    Default = false,
+    Callback = function(Value)
+        print("God Mode: " .. tostring(Value))
+        -- Ajoutez votre code pour activer/désactiver le God Mode ici
+    end
+})
+
+OrionLib:Init()
